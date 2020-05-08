@@ -121,6 +121,8 @@ public class CWMetricsTest {
         GetMetricStatisticsResult metricStatistics = cw.getMetricStatistics(metricStatisticsRequest);
 
         assertThat(metricStatistics.getDatapoints().size(), is(1));
+
+        // It should not return 0.0 as maximum
         assertThat(metricStatistics.getDatapoints().get(0).getMaximum(), is(not(0.0)));
     }
 }
